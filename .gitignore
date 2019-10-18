@@ -1,8 +1,18 @@
 # Compiled class file
 *.class
 
+#netbeans ignore personal stuff
+nbproject/
+
 # Log file
 *.log
+
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
 
 # BlueJ files
 *.ctxt
