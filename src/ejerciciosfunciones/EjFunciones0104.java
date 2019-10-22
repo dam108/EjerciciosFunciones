@@ -2,7 +2,7 @@ package ejerciciosfunciones;
 import java.util.Scanner;
 public class EjFunciones0104 {
     public static void main(String[] args) {
-        int dia1, dia2, mes1, mes2, year, totalDias = 0, diasSueltosMes1, diasSueltosMes2;
+        int dia1, dia2, mes1, mes2, year, dias1, dias2;
         Scanner teclado = new Scanner(System.in);
         
         System.out.println("introduce el dia de la primera fecha: ");
@@ -17,30 +17,29 @@ public class EjFunciones0104 {
         System.out.println("introduce el año: ");
         year = teclado.nextInt();
         
-        if (mes2 == mes1 + 1){ 
-            // hacer esto en una funcion
-           diasSueltosMes1 = CalcularDiasMes (mes1, year) - dia1;
-            System.out.println(diasSueltosMes1);
-           diasSueltosMes2 = dia2;
-           System.out.println(diasSueltosMes2);
-           totalDias = diasSueltosMes1 + diasSueltosMes2;
-        }
-        else { // si no son consecutivos y son direntes 
-           if ( mes1 != mes2){ //
-               for (int i = mes1 + 1; i < mes2; i++){
-                   
-                   totalDias += CalcularDiasMes (i, year);
-               }
-               diasSueltosMes1 = CalcularDiasMes (mes1, year) - dia1;
-               diasSueltosMes2 = dia2;
-               totalDias = totalDias + diasSueltosMes1 + diasSueltosMes2;
-           } 
-           else {
-               totalDias = dia2 - dia1;
-           }
-        }
-        System.out.println("Dias entre fechas: "+totalDias);
+        dias1 = calcularDias(year, mes1, dia1);
+        System.out.println(dias1);
+        dias2 = calcularDias(year, mes2, dia2);
+        System.out.println(dias2);
+        
+        int resta = Math.abs(dias1 - dias2);
+        
+        System.out.println("La Diferencia entre fechas es de : "+resta+" dias");
+        
 
+    }
+    
+    public static int calcularDias(int yy, int mm, int dd){
+        int acumuladorDias = 0, totalDias;
+        for (int i = 1 ; i < mm ; i++){
+            
+            acumuladorDias += CalcularDiasMes(i, yy);
+            
+        }
+        
+        totalDias = acumuladorDias + dd;
+
+        return totalDias;
     }
     
     public static int CalcularDiasMes ( int m, int a ){

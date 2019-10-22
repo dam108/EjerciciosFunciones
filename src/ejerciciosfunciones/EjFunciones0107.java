@@ -3,7 +3,7 @@ package ejerciciosfunciones;
 public class EjFunciones0107 {
    // public static Scanner teclado = new Scanner(System.in); // si se usa de forma global
     public static int min = 1;
-    public static int max = 100;
+    public static int max = 1000;
     
     public static void main(String[] args) {
         // Scanner teclado = new Scanner(System.in); // si se usa en el main
@@ -13,7 +13,7 @@ public class EjFunciones0107 {
     
     public static int sumarPrimos(int min, int max){
         int acumulador = 0;
-        for (int i=3 ; i <= 100; i+=2){ // bucle de numeros impares desde el 3 al 1000 
+        for (int i=3 ; i <= 1000; i+=2){ // bucle de numeros impares desde el 3 al 1000 
             boolean primo = true; // inicializamos la variable primo como verdadera
             int contador = 2; // incializamos un contador en 2
             while( primo && contador < i){ // mientras primo sea verdadero y el contador no pase de el numero en el que estamos en cada momento
@@ -30,7 +30,6 @@ public class EjFunciones0107 {
             }
         }
         return acumulador + 2;// se le suma dos por que el 2 es primo pero no estaba dentro del bucle  por que el bucle empezaba en 3
-
     }
     
 }

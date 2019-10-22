@@ -5,7 +5,7 @@ public class EjFunciones0102 {
         Scanner teclado = new Scanner(System.in);
         
         int dia, mes, year;
-        int acumuladorDias = 0, totalDias = 0;
+        
         System.out.println("Introduce un año: ");
         year = teclado.nextInt();
         System.out.println("Introduce un mes: ");
@@ -13,18 +13,25 @@ public class EjFunciones0102 {
         System.out.println("Introduce un dia: ");
         dia = teclado.nextInt();
         
-        for (int i = 1 ; i < mes ; i++){
-            
-            
-            acumuladorDias += CalcularDiasMes(i, year);
-            
-        }
-        
-        totalDias = acumuladorDias + dia;
-        System.out.println("Han pasado "+totalDias+" desde el 1/1/"+year+" hasta "+dia+"/"+mes+"/"+year);
+        int calculoDias = calcularDias(year, mes, dia);
+
+        System.out.println("Han pasado "+calculoDias+" desde el 1/1/"+year+" hasta "+dia+"/"+mes+"/"+year);
         
         //hacer un programa que nos informe de los dias desde el 1 de enero hasta el dia introducido
 
+    }
+    
+    public static int calcularDias(int yy, int mm, int dd){
+        int acumuladorDias = 0, totalDias;
+        for (int i = 1 ; i < mm ; i++){
+            
+            acumuladorDias += CalcularDiasMes(i, yy);
+            
+        }
+        
+        totalDias = acumuladorDias + dd;
+
+        return totalDias;
     }
     
     // hacer una funcion que se llame calcularDiasMes y que si le pasamos un mes y un año nos diga los dias de ese mes
